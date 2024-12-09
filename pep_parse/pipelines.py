@@ -3,7 +3,8 @@ import datetime as dt
 
 from pep_parse.settings import (
     FIELDS_NAME, EXPECTED_STATUS,
-    FILE_NAME, BASE_DIR, DT_FORMAT
+    FILE_NAME, BASE_DIR, DT_FORMAT,
+    STATUS_KEY
 )
 
 
@@ -14,7 +15,7 @@ class PepParsePipeline:
         self.result_dir.mkdir(exist_ok=True)
 
     def process_item(self, item, spider):
-        status = item['status']
+        status = [STATUS_KEY]
         self.results[status] = self.results.get(status, 0) + 1
         return item
 
