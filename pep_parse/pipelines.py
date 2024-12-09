@@ -15,7 +15,7 @@ class PepParsePipeline:
         self.result_dir.mkdir(exist_ok=True)
 
     def process_item(self, item, spider):
-        status = [STATUS_KEY]
+        status = item.get(STATUS_KEY)
         self.results[status] = self.results.get(status, 0) + 1
         return item
 
