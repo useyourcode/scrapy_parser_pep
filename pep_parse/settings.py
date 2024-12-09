@@ -8,8 +8,10 @@ ROBOTSTXT_OBEY = True
 
 FIELDS_NAME = ('Статус', 'Количество')
 FILE_NAME = 'status_summary_{time}.csv'
+DT_FORMAT = '%Y-%m-%dT%H-%M-%S'
 
 BASE_DIR = Path(__file__).parent.parent
+
 EXPECTED_STATUS = {
     'Accepted': 0,
     'Active': 0,
