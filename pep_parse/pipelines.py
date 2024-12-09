@@ -20,7 +20,7 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         current_time = dt.datetime.now().strftime(DT_FORMAT)
-        file_dir = self.result_dir / FILE_NAME.format(time=TIME_NOW)
+        file_dir = self.result_dir / FILE_NAME.format(time=current_time)
 
         data_to_write = [[key, val] for key, val in EXPECTED_STATUS.items()]
         data_to_write.append(['Total', sum(EXPECTED_STATUS.values())])
