@@ -3,7 +3,7 @@ import datetime as dt
 
 from pep_parse.settings import (
     FIELDS_NAME, EXPECTED_STATUS,
-    FILE_NAME, BASE_DIR
+    FILE_NAME, BASE_DIR, DT_FORMAT
 )
 
 
@@ -20,7 +20,6 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        DT_FORMAT = '%Y-%m-%dT%H-%M-%S'
         TIME_NOW = dt.datetime.now().strftime(DT_FORMAT)
         file_dir = self.result_dir / FILE_NAME.format(time=TIME_NOW)
 
