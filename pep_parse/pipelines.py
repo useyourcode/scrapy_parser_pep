@@ -14,13 +14,12 @@ class PepParsePipeline:
         self.result_dir.mkdir(exist_ok=True)
 
     def process_item(self, item, spider):
-        pep_status = item['status']
-        EXPECTED_STATUS[pep_status] = EXPECTED_STATUS.get(pep_status, 0) + 1
-
+        status = item['status']
+        self.results[status] = self.results.get(status, 0) + 1
         return item
 
     def close_spider(self, spider):
-        TIME_NOW = dt.datetime.now().strftime(DT_FORMAT)
+        current_time = dt.datetime.now().strftime(DT_FORMAT)
         file_dir = self.result_dir / FILE_NAME.format(time=TIME_NOW)
 
         data_to_write = [[key, val] for key, val in EXPECTED_STATUS.items()]
