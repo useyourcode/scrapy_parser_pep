@@ -1,6 +1,7 @@
 from pathlib import Path
 
 BOT_NAME = 'pep_parse'
+SPIDER_NAME = 'pep'
 
 SPIDER_MODULES = ['pep_parse.spiders']
 NEWSPIDER_MODULE = 'pep_parse.spiders'
@@ -11,6 +12,9 @@ FILE_NAME = 'status_summary_{time}.csv'
 DT_FORMAT = '%Y-%m-%dT%H-%M-%S'
 
 BASE_DIR = Path(__file__).parent.parent
+
+ALLOWED_DOMAINS = 'peps.python.org'
+START_URLS = 'https://peps.python.org/'
 
 EXPECTED_STATUS = {
     'Accepted': 0,
