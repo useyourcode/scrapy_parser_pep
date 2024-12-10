@@ -2,7 +2,6 @@ from pathlib import Path
 
 BOT_NAME = 'pep_parse'
 SPIDER_NAME = 'pep'
-STATUS_KEY = 'status'
 
 SPIDER_MODULES = ['pep_parse.spiders']
 NEWSPIDER_MODULE = 'pep_parse.spiders'
@@ -17,7 +16,7 @@ BASE_DIR = Path(__file__).parent.parent
 ALLOWED_DOMAINS = 'peps.python.org'
 START_URLS = 'https://peps.python.org/'
 
-EXPECTED_STATUS = {
+expected_status = {
     'Accepted': 0,
     'Active': 0,
     'Deferred': 0,
